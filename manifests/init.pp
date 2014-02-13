@@ -155,10 +155,16 @@ class pypolicyd_spf (
     purge   => $purge,
     force   => $purge,
   }
-
+  file { $pypolicyd_spf::params::confdir:
+    ensure  => $directory_ensure,
+    recurse => true,
+    purge   => $purge,
+    force   => $purge,
+  }
   file { "${pypolicyd_spf::params::confdir}/policyd-spf.conf" :
     ensure    => $ensure,
     mode      => '0644',
     content   => template('pypolicyd_spf/config.erb'),
+    subscribe => Exec['pypolicyd_spf_install'],
   }
 }
