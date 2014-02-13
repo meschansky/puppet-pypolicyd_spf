@@ -1,0 +1,13 @@
+# This file is maintained by puppet.
+# For a fully commented sample config file see policyd-spf.conf.commented
+
+debugLevel = <%= @debuglevel %>
+defaultSeedOnly = <%= @defaultseedonly %>
+
+HELO_reject = <%= @helo_reject %>
+Mail_From_reject = <%= @mail_from_reject %>
+
+PermError_reject = <%= @permerror_reject %>
+TempError_Defer = <%= @temperror_defer %>
+
+skip_addresses = <%= @skip_addresses %>
